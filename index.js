@@ -2,9 +2,16 @@ const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
 const cors = require('cors');
+const helmet = require('helmet')
 require("dotenv").config()
 
+
 const connectDB = require("./db/connect")
+
+app.use(express.urlencoded({limit:"30mb",extended: true}))
+app.use(express.json({limit:"30mb",extended: true}))
+app.use(cors())
+app.use(helmet())
 
 const port = process.env.PORT || 8080
 
