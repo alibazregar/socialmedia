@@ -15,13 +15,23 @@ app.use(cors())
 app.use(helmet())
 
 app.use("/",require("./src/routes"))
+app.use(require("./src/middlewere/error"))
 
 const port = process.env.PORT || 8080
 
 const start = async ()=>{
-  await connectDB(process.env.MONGO_URL)
-  app.listen(port,()=>{
-    console.log(`listening on the port ${port}............`);
-  })
-}
-start()
+  try{
+    
+    await connectDB(process.env.MONGO_URL)
+    
+    app.listen(port,()=>{
+      console.log(`listening on port ${port}...........`)
+    })
+  
+  }catch(err){
+
+    console.log(`connection failed: ${err}`)
+
+  }
+}  
+start();
