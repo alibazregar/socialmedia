@@ -15,7 +15,7 @@ app.use(cors())
 app.use(helmet())
 
 app.use("/",require("./src/routes"))
-app.use(require("./src/middlewere/error"))
+app.use(require("./src/middleware/error"))
 
 const port = process.env.PORT || 8080
 

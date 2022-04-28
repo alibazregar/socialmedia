@@ -13,4 +13,17 @@ module.exports = new(class extends Controller {
     res.status.json(newPost)
 
   }
+
+  async deletePost(req, res){
+
+  }
+  
+  async updatePost(req, res){
+
+  }
+
+  async likePost(req, res){
+    
+  }
+
 })
